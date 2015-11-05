@@ -2,3 +2,4 @@
   user: vagrant
   roles:
     - common
+    - tmux

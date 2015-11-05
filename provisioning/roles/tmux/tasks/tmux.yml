@@ -1,0 +1,24 @@
+---
+- name: download tmux source
+  sudo: true
+  get_url:
+    url=https://github.com/tmux/tmux/releases/download/{{ tmux_ver }}/tmux-{{ tmux_ver }}.tar.gz
+    dest="{{ src_dir }}/tmux-{{ tmux_ver }}.tar.gz"
+
+- name: extract tmux source
+  sudo: true
+  unarchive:
+    src="{{ src_dir }}/tmux-{{ tmux_ver }}.tar.gz"
+    dest="{{ src_dir }}"
+    copy=no
+
+- name: install tmux
+  sudo: true
+  shell: >
+    {{ item }}
+    chdir="{{ src_dir }}/tmux-{{ tmux_ver }}"
+    creates="{{ bin_dir }}/tmux"
+  with_items:
+    - ./configure
+    - make
+    - sudo make install

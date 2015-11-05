@@ -1,0 +1,9 @@
+---
+- name: tmux dependencies
+  sudo: true
+  yum: name={{item}} state=installed
+  with_items:
+     - '"@Development tools"'
+     - ncurses-devel
+- include: libevent.yml
+- include: tmux.yml
