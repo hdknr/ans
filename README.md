@@ -11,6 +11,6 @@ $ vi Vagrantfile
 ~~~~
 
 ~~~
-$ vagrant ssh-config >> ssh.conf
+$ vagrant ssh-config > provisioning/vagrant
 ~~~
 

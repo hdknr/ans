@@ -1,0 +1,12 @@
+- name: upgrade all yum packages
+  sudo: true
+  yum: name=* state=latest
+- name: add package $item
+  sudo: true
+  yum: name={{item}} state=installed
+  with_items:
+     - '"@Development tools"'
+     - httpd
+     - vim-enhanced
+     - git
+     - lsof
