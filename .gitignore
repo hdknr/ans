@@ -1,1 +1,3 @@
 .vagrant
+Vagrantfile
+ssh.conf
