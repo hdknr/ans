@@ -17,9 +17,10 @@
   shell: >
     {{ item }}
     chdir="{{ src_dir }}/libevent-2.0.22-stable"
-    creates=/usr/local/lib/libevent-2.0.so.5
+    creates=/usr/lib64/libevent-2.0.so.5
   with_items:
     - ./configure
     - make
-    - make install
+    - sudo make install
+    - sudo ln -s /usr/local/lib/libevent-2.0.so.5 /usr/lib64/libevent-2.0.so.5
   notify: add path to shared libraries
