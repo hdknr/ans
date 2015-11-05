@@ -3,10 +3,13 @@
   git:
     repo=https://github.com/hdknr/bin.git
     dest=/home/{{ user }}/bin
+    version=centos
     accept_hostkey=yes
 - name: setup bin
   sudo: no
   shell: >
-    git checkout centos --git-dir=/home/{{ user }}/bin
-    ~/bin/setup/setup.bash
+    {{ item }}
+    chdir="/home/{{ user }}"
+  with_items:
+    - bin/setup/setup.bash
   ignore_errors: True  
