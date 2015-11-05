@@ -2,4 +2,5 @@
   user: vagrant
   roles:
     - common
+    - bin
     - tmux

@@ -1,0 +1,12 @@
+- name: git clone bin repository
+  sudo: no
+  git:
+    repo=https://github.com/hdknr/bin.git
+    dest=/home/{{ user }}/bin
+    accept_hostkey=yes
+- name: setup bin
+  sudo: no
+  shell: >
+    git checkout centos --git-dir=/home/{{ user }}/bin
+    ~/bin/setup/setup.bash
+  ignore_errors: True  
